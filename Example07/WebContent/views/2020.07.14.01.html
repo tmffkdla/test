@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+	<h1>나는 텍스트</h1>
+</body>
+
+<script>
+	let h1 = document.getElementsByTagName("h1")[0];
+	//h1.firstChild.data="반가워요";
+	h1.firstChild.aaa="홍길동";
+	h1.firstChild.nodeValue="반가워요";// Element를 그대로 놔두고 node먼 버꾼다.(심어놓은 데이터는 그대로 이므로 데이터 활용이 가능하다.)
+	//h1.innerText="반가워요";//Element를 다 바꾼다.(원래의 데이터 활용이 불가능 하다. )
+	h1.innerText = h1.firstChild.aaa + h1.firstChild.nodeValue ;
+</script>
+
+</html>

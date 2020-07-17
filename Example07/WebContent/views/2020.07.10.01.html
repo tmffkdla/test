@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	p{border:2px solid grey}
+	label{width:10em;}
+</style>
+</head>
+<body>
+	<h1>윈도우 사이즈 조절 및 위치 오픈</h1>
+	<p> 
+	<label> 접속할 사이트 주소 <input type="text" id="addr" value="https://www.naver.com"></label>
+	</p>
+	<p>
+	<label>세로사이즈<input type="number" step="100" min="0" id="hs" value="500"></label>
+	<label>가로사이즈<input type="number" step="100" min="0" id="ws" value="500"></label>
+	</p>
+	<p>
+	<label>세로 위치<input type="number" step="100" min="0" id="hp" value="0"></label>
+	<label>가로 위치<input type="number" step="100" min="0" id="wp" value="0"></label>
+	</p>
+	<button onclick="openWin()">윈도우창 열기</button> <button> 탭으로 열기</button>
+</body>
+<script>
+	
+	function openTab(){
+		let addr= document.getElementById("addr")
+		window.open(addr.value);
+	}
+	function openWin(){
+		let addr= document.getElementById("addr");
+		let hs= document.getElementById("hs");
+		let ws= document.getElementById("ws");
+		let hp= document.getElementById("hp");
+		let wp= document.getElementById("wp");
+		let mywin = window.open
+			(addr.value,"_blank","height="+hs.value+",width="+ws.value+",left="+wp.value+",top="+hp.value);
+	}
+	
+</script>
+
+</html>

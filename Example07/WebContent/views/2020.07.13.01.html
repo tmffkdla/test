@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	console.log(location.href);
+	 //location.href="https://www.naver.com?aaa=bbb";
+	 //location.reload(false);//현재 페이지를 다시 읽어온다. false 라면 캐시에서 읽는다.
+	 //location.assign("https://www.daum.net");//히스토리를 가지고 리다이렉션 한다.
+	 location.replace("https://www.daum.net");//히스토리를 제외하고 리다이렉션 한다.
+</script>
+</head>
+<body>
+	<form method="get" action="http://localhost:8080/views/2020.07.13.01.html">
+		<input type="text" name="id">
+		<input type="text" name="pw">
+		<input type="submit" value="전송">
+	</form>
+	<div id="result"></div>
+</body>
+<script>
+	console.log(location.search);
+	if(location.search!=""){
+		//?id=+%ED%99%8D%EA%B8%B8%EB%8F%99&pw=a12345
+			let loc = location.search.replace("?","");
+			loc = decodeURI(loc);
+			let locArr = loc.split("&");
+			//id=+%ED%99%8D%EA%B8%B8%EB%8F%99
+			//pw=a12345
+			let result = document.getElementById("result");
+			for(let i=0;i<locArr.length;i++){
+				let resArr=locArr[i].split('=');
+				let inText = "키:"+resArr[0]+"::값:"+resArr[i]+"<br>";
+				result.innerHTML = inText+result.innerHTML
+			}
+	}
+	
+</script>
+</html>
