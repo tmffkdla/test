@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="iamdiv" aaa="bbb" 
+		style="width:100px; heigth:100px;bacjgrouond-color:red">
+		<p>div 내용물</p>
+	</div>
+	<div id="mdiv">
+		<h1>반가워</h1>
+		<h2><span style="color:blue">또 만나요</span>잘가요</h2>
+		<h3>편지글...</h3>
+	</div> 
+	<div name="ndiv"></div>
+	<p name="ndiv"></p> 
+	
+</body>
+<script>
+	let names = document.getElementsByName("ndiv");
+	console.log(names);
+	let iamdiv = document.getElementById("iamdiv");
+	console.log(iamdiv.tagName);
+	console.log(iamdiv.id);
+	console.log(iamdiv.style);
+	console.log(iamdiv.attributes[1].name);
+	console.log(iamdiv.attributes[1].nodevalue);
+	console.log(iamdiv.innerHTML);
+	console.log(iamdiv.innerText);
+	console.log(iamdiv.getAttribute("id"));
+	console.log(iamdiv.getAttribute("aaa"));
+	iamdiv.setAttribute("aaa","zzz");
+	console.log(iamdiv.getAttribute("aaa"))
+	let mdiv=document.getElementById("mdiv");
+	mdiv_childs=mdiv. childNiodes;
+	for(let i=0; i<mdiv_childs.length;i++){
+		if(!mdiv_childs[i].innerText){
+			console.log(mdiv_childs[i].innerText);
+		}
+	}
+	
+	
+</script>
+</html>

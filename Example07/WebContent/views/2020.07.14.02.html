@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div style="background-color:darkred;"><p>첫 번째 자식</p><h1>두 번째 자식</h1><h3>세 번째 자식</h3></div>
+	<!-- div는 속성노드도 달림. -->
+
+
+</body>
+
+<script>
+let div = document.getElementsByTagName("div")[0];
+console.log(div.firstChild);
+console.log(div.lastChild);
+console.log(div.lastChild.previousSibling); // 이전 형제노드 탐색
+console.log(div.childNodes);
+console.log(div.attributes[0].value); //속성 불러오기
+div.attributes[0].value = "background-color:lightblue"; //
+div.style.backgroundColor = "yellow"; //Element 접근 방법
+div.style["background-color"]="green"; //객체 접근 방법
+div.style="background-color:pink; border:2px solid black;"; //css 문법
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	console.log(location.href);
+	location.href="https://www.naver.com"; //리다이렉션, 왔다가 이 줄에서 바뀜, history에서 있는 것.
+	
+	//리다이렉트 방법
+	
+	//location.reload(false); 현재 페이지를 다시 읽어온다. false 하면 캐시에서 읽는다.
+	//location.assign("https://www.daum.net"); //히스토리를 가지고 리다이렉션
+	//location.replace("https://www.daum.net"); //히스토리를 제외하고 리다이렉션
+	 
+</script>
+
+</head>
+<body>
+	<form method ="get" action="http://localhost:8080/views/2020.07.13.01.html">  
+		<!-- url / uri  -->
+		<input type="text" name="id">
+		<input type="text" name="pw">
+		<input type="submit" value="전송">
+	</form>
+
+<div id="result"></div> <!-- name 속성을 줘야 함.  -->
+
+
+<script>
+	//QueryString 에 대해 알아보기
+	console.log(location.search);
+	if(location.search !=""){
+		//?id=%ED%99%8D%EA%B8%B8%EB%8F%99&pw=a12345
+		let loc = location.search.replace("?","");
+		loc = decodeURI(loc);
+		let locArr = loc.split("&");
+		//id=%ED%99%8D%EA%B8%B8%EB%8F%99
+		//pw = a12345
+		
+		let result = document.getElementById('result');
+		for(let i=0; i<locArr.length; i++){
+			let resArr = locArr[i].split("=");
+			let inText = "키:" + resArr[0] + "::값:" + resArr[1]; //키와 값
+			result.innerHTML = inText + result.innerHTML;
+			//getQueryString 등 서버 프로그래밍에서는 키 / 값을 분할하는 메서드가 지원된다. 
+			//주소는 바로 접근이 가능하다. body는 접근이 바로 안된다.
+			//주소에다 붙이는 방식은 QueryString. 보안은 떨어짐. get 방식임 중요 내용은 QueryString으로 보내면 안됨.
+			// 상대주고, 절대주소
+		}
+	}
+</script>
+</body>
+
+</html>
