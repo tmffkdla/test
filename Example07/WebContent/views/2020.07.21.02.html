@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id= "mdiv"></div>
+</body>
+<script>
+	let mdiv = document.querySelector("#madiv");
+	let mp = document.createElement('p');
+	let txt = document.createTextNode("추가된 노드의 텍스트 입니다.");
+	mp.appendChild(txt);
+	mdiv.appendChild(mp);
+</script>
+</html>
