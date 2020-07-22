@@ -13,5 +13,8 @@
 	let txt = document.createTextNode("추가된 노드의 텍스트 입니다.");
 	mp.appendChild(txt);
 	mdiv.appendChild(mp);
+	//mdiv.inserBefore(mp);//자식객체 무조건 맨 끝에 삽입한다.
+	mdiv.insertBefore(mp,mdiv,cjildNodes[0]);//자식객체에 넣는다.
+	console.log(mdiv);
 </script>
 </html>
