@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>paint js Program</title>
+<style>
+	*{margin:0; padding:0}
+	#container{background:black; padding:1em}
+	#mc{background:white}
+	#colorContain div{border:1px solid black; width:100px; height:100px; float:left;}
+</style>
+</head>
+<body>
+	<h1 style="text-align:center">연습용 웹 그림판</h1>
+	<div id="container">
+		<canvas id="mc" width="900px" height="600px"></canvas>
+	</div>
+	<input type="color" id="selcolor">
+	<div id="colorContain">
+	<div id="black"></div>
+	<div id="red"></div>
+	<div id="blue"></div>
+	<div id="green"></div>
+	<div id="white"></div>
+	</div>
+	
+</body>
+<script>
+	let paretColor="black";
+	let mdiv = document.querySelectorAll('#colorContain div');
+	for(let i=0;i<mdiv.length;i++){
+		mdiv[i].style.backgroundColor=mdiv[i].id;
+		mdiv[i].addEventListener("click",function(){
+			paretColor=mdiv[i].id;
+		});
+	}
+	let minusGap = document.querySelector("h1").offsetHeight+16
+	let mc = document.getElementById('mc');
+	let ctx = mc.getContext('2d');
+	let prevX;
+	let prevY;
+	//event listener regist
+	let movecb = function(e){
+		
+		if(!prevX && !prevY){return}
+		ctx.moveTo(prevX,prevY);
+		ctx.lineTo(e.pageX-16,e.pageY-minusGap);
+		ctx.stroke();
+		prevX=e.pageX-16; prevY=e.pageY-minusGap;
+	}	
+	let mdown=function(e){
+		if(e.button==0){
+			ctx.strokeStyle=paretColor;
+			ctx.beginPath();
+			if(!prevX && !prevY){ prevX=e.pageX-16; prevY=e.pageY-minusGap; return; }
+		}
+	}
+	let mup=function(e){
+		if(e.button==0){
+			prevX=undefined; prevY=undefined;
+		}
+	}
+	//event callback function
+	mc.addEventListener("mousemove",movecb);
+	mc.addEventListener("mousedown",mdown);
+	mc.addEventListener("mouseup",mup);
+</script>
+</html>

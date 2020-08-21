@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p> 피태그 </p>
+	<h2> 헤딩  h2 태그 </h2>
+	<h3> 헤딩 h3 태그 </h3>
+</body>
+<script>
+	let p = document.getElementsByTagName("p")[0];
+	let h3 = document.getElementsByTagName("h3")[0];
+	document.body.replaceChild(h3,p);
+	h3.style="background-color:red; color:green";
+	h3.style.background="yellow";
+	h3.style.color="red";
+	console.log(h3);
+</script>
+</html>

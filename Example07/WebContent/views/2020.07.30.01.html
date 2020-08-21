@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style>
+		#container{height:400px; padding:20px; background:black;}
+		canvas{width:1000px; height:200px;}
+		#cv1{background:yellow} #cv2{background:grey}
+	</style>
+</head>
+<body>
+	<div id= "container">
+		<canvas id="cv1"></canvas>
+		<canvas id="cv2"></canvas>
+	</div>
+</body>
+<script>
+	let cv1 = document.getElementById("cv1");
+	let cv2 = document.getElementById("cv2");
+	let ctx1 = cv1.getContext("2d");
+	let ctx2 = cv2.getContext("2d");
+	ctx1.strokeStyle="red";
+	ctx1.moveTo(10,10);
+	ctx1.lineTo(50,50);
+	ctx1.lineTo(100,10);
+	ctx1.stroke();
+	ctx1.beginPath();
+	ctx1.strokeStyle="green";
+	ctx1.moveTo(100,10);
+	ctx1.lineTo(150,50);
+	ctx1.lineTo(200,10);
+	ctx1.closePath();
+	ctx1.beginPath();
+	ctx1.moveTo(200,100);
+	ctx1.lineTo(250,100);
+	ctx1.lineTo(250,150);
+	ctx1.closePath();
+	ctx1.stroke();
+	ctx2.strokestyle="blue";
+	ctx2.rect(10,10,100,100);
+	ctx2.stroke();
+	ctx2.fillStyle="red";
+	ctx2.fillRect(100,10,150,150);
+	ctx2.beginPath();
+	ctx2.fillStyle="red";
+	ctx2.arc(250,60,50,0,Math.PI/2);
+	ctx2.closePath();
+	ctx2.stroke();
+	ctx2.fill();
+</script>
+</html>

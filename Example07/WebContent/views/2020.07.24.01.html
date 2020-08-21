@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div{position:obsolute;left:2px;top:2px;}
+</style>
+</head>
+<body>
+	<div style = "width:25px; height:25px; background-color:red"></div>
+</body>
+<script>
+	let cnt = 1;
+	document.addEventListener("click",function(e){
+		console.log("클릭이벤트 발생:"+cnt);
+		cnt++;
+		console.log(e);
+	});
+	 /*
+	 현재 윈도우 기준 위치값
+	 clientX
+	 clientY
+	 현재 타겟 기준 위치값
+	 offsetX
+	 offsetY
+	 현재 문서 기준 위치값
+	 pageX
+	 pageY
+	 화면기준 위치값
+	 screenX
+	 screenY 
+	 */
+	 
+</script>
+</html>
